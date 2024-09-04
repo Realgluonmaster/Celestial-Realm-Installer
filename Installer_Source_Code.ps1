@@ -20,6 +20,8 @@ $minecraftModsPath = "$env:APPDATA\.minecraft\mods"
 $javaInstallerPath = [System.IO.Path]::Combine($downloadsPath, 'JavaSetup8u421.exe')
 $forgeInstallerPath = [System.IO.Path]::Combine($downloadsPath, 'forge-1.20.1-47.3.7-installer.jar')
 $javaExecutablePath = "C:\Program Files (x86)\Common Files\Oracle\Java\java8path\java.exe"
+
+# Tethering Files
 $filesToMove = @(
     "dimdoors-5.4.1-1.20.1-forge.jar",
     "ftb-quests-forge-2001.4.8.jar",
