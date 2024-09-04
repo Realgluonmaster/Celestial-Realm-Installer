@@ -1,4 +1,4 @@
-# Set the interval time (in seconds) for checking file presence
+# Interval Timer for Java Check
 $interval = 10
 
 # Start Message
@@ -7,14 +7,14 @@ Write-Output "(INFO) If anything goes wrong then discord Gluon."
 Write-Output "(INFO) If you really need to, close out of the installer with task manager. Otherwise let it run. It will let you know when it is done"
 Write-Output "(WARN) This installer rapidly installs the mods by opening tabs. Do not be alarmed. Please wait 30 seconds before using your computer while mods install once you hit okay. You will see all files installed in downloads."
 
-# Function to get the Downloads folder path
+# Download Path Function
 function Get-DownloadsFolder {
     $shell = New-Object -ComObject Shell.Application
     $downloadsFolder = $shell.Namespace('shell:Downloads').Self.Path
     return $downloadsFolder
 }
 
-# Set paths
+# Pathing
 $downloadsPath = Get-DownloadsFolder
 $minecraftModsPath = "$env:APPDATA\.minecraft\mods"
 $javaInstallerPath = [System.IO.Path]::Combine($downloadsPath, 'JavaSetup8u421.exe')
@@ -83,11 +83,11 @@ $filesToMove = @(
     # Add more filenames as needed
 )
 
-# Download Forge installer
+# Download Forge and Java Installers
 Start-Process "https://javadl.oracle.com/webapps/download/AutoDL?BundleId=250111_d8aa705069af427f9b83e66b34f5e380"
 Start-Process "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.3.7/forge-1.20.1-47.3.7-installer.jar"
 
-# Download mods
+# Download Mods
 Start-Process "https://mediafilez.forgecdn.net/files/5617/415/dimdoors-5.4.1-1.20.1-forge.jar"
 Start-Sleep -Seconds 1
 Start-Process "https://mediafilez.forgecdn.net/files/5543/955/ftb-quests-forge-2001.4.8.jar"
@@ -222,7 +222,7 @@ function WaitForFile {
     }
 }
 
-# Define and create .minecraft/mods directory 
+# Remove and Replace Mods Folder Directory
 if (Test-Path -Path $minecraftModsPath) {
     Remove-Item -Path $minecraftModsPath -Recurse -Force 
     New-Item -Path $minecraftModsPath -ItemType Directory 
@@ -234,7 +234,7 @@ if (-not (Test-Path -Path $minecraftModsPath)) {
 
 Write-Output "Now moving mods to minecraft folder."
 
-# Move downloaded mods to .minecraft/mods directory
+# Move Mods to Mods Directory
 foreach ($file in $filesToMove) {
     $sourceFile = [System.IO.Path]::Combine($downloadsPath, $file)
     
@@ -253,19 +253,19 @@ foreach ($file in $filesToMove) {
 
 Write-Output "You will need to install java or forge will not work correctly."
 
-# Function to install Java
+# Install Java Function
 function Install-Java {
     WaitForFile -filePath $javaInstallerPath
     Start-Process -FilePath $javaInstallerPath -Wait
 }
 
-# Function to install Forge
+# Install Forge Function
 function Install-Forge {
     WaitForFile -filePath $forgeInstallerPath
     Start-Process -FilePath "$javaExecutablePath" -ArgumentList "-jar `"$forgeInstallerPath`"" -Wait
 }
 
-# Function to check for Java directory and install Forge if found
+# Check Java then Run Install Forge Function
 function Check-JavaAndInstallForge {
     $javaDirPath = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Java"
     while (-not (Test-Path -Path $javaDirPath)) {
@@ -274,7 +274,7 @@ function Check-JavaAndInstallForge {
     Install-Forge
 }
 
-# Install Java and Forge
+# Run Java and Forge Check Functions
 Install-Java
 Check-JavaAndInstallForge
 
