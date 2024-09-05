@@ -81,7 +81,8 @@ $filesToMove = @(
     "Bountiful-6.0.3+1.20.1-forge.jar",
     "Kambrik-6.1.1+1.20.1-forge.jar",
     "kotlinforforge-4.11.0-all.jar",
-    "aquamirae-6.API15.jar"
+    "aquamirae-6.API15.jar",
+    "libraryferret-forge-1.20.1-4.0.0.jar"
     # Add more filenames as needed
 )
 
@@ -208,6 +209,8 @@ Start-Sleep -Seconds 1
 Start-Process "https://mediafilez.forgecdn.net/files/4616/364/obscure_api-15.jar"
 Start-Sleep -Seconds 1
 Start-Process "https://mediafilez.forgecdn.net/files/5402/61/kotlinforforge-4.11.0-all.jar"
+Start-Sleep -Seconds 1
+Start-Process "https://mediafilez.forgecdn.net/files/4601/234/libraryferret-forge-1.20.1-4.0.0.jar"
 Start-Sleep -Seconds 1
 
 Write-Output "(WARN) This program will delete a old minecraft mods folder once you click okay or X out of window."
