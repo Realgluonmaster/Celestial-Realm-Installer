@@ -1,3 +1,4 @@
+#Do these one at a time.
 Set-ExecutionPolicy Unrestricted
 Install-Module ps2exe         
 Import-Module ps2exe
