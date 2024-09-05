@@ -34,7 +34,7 @@ $filesToMove = @(
     "origins-forge-1.20.1-1.10.0.9-all.jar",
     "caelus-forge-3.2.0+1.20.1.jar",
     "simpleshops-1.2.2.jar",
-    "jei-1.20.1-forge-15.12.3.55.jar",
+    "RoughlyEnoughItems-12.1.750-forge.jar",
     "CraftTweaker-forge-1.20.1-14.0.43.jar",
     "worldborder-1.20.1-4.7.jar",
     "collective-1.20.1-7.84.jar",
@@ -114,7 +114,7 @@ Start-Process "https://mediafilez.forgecdn.net/files/5281/700/caelus-forge-3.2.0
 Start-Sleep -Seconds 1
 Start-Process "https://mediafilez.forgecdn.net/files/4716/851/simpleshops-1.2.2.jar"
 Start-Sleep -Seconds 1
-Start-Process "https://mediafilez.forgecdn.net/files/5648/527/jei-1.20.1-forge-15.12.3.55.jar"
+Start-Process "https://mediafilez.forgecdn.net/files/5627/518/RoughlyEnoughItems-12.1.750-forge.jar"
 Start-Sleep -Seconds 1
 Start-Process "https://mediafilez.forgecdn.net/files/5648/765/CraftTweaker-forge-1.20.1-14.0.43.jar"
 Start-Sleep -Seconds 1
